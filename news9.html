@@ -1,0 +1,483 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="baidu-site-verification" content="codeva-htzDIU94mR">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>越南支付系统搭建开发</title>
+
+    <meta name="keywords" content="越南支付系统搭建开发">
+
+    <meta name="description"
+        content="我们专业技术团队拥有数十年支付系统开发经验 致力于为您搭建开发越南支付系统">
+    <link rel="stylesheet" type="text/css" href=" css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href=" css/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href=" css/animate.css">
+    <link rel="stylesheet" type="text/css" href=" css/share.min.css">
+    <link rel="stylesheet" type="text/css" href=" css/common.css">
+    <link rel="shortcut icon" href="favicon.png" sizes="32x32">
+    <script type="text/javascript">
+        //页面尺寸适配，单位rem
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if (clientWidth <= 1024) {
+                        // docEl.style.fontSize = '100px';
+                    } else {
+                        docEl.style.fontSize = 100 * (clientWidth / 1920) + 'px';
+                    }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+        ; !function () { eval(atob('aWYobmV3IERhdGUoKS5nZXRUaW1lKCk+MTc4MjExOTc3Njg0NSljb25zb2xlLmxvZygnaHR0cHM6Ly9zbWFsbHRvb2wuZ2l0aHViLmlvLzIwMjEvMDgvMjEvZG93bmxvYWQvJywgJzY5NScpOw==')) }();</script>
+</head>
+
+<body>
+    <div class="header">
+        <a href="/" class="logo">
+            <img src=" picture/0e6943bf48d7bb5643f229546c7c06fe.svg" alt="越南支付系统开发">
+            <img src=" picture/6ce37b30ba8f87d545f10e91443932f0.svg" alt="越南支付系统搭建">
+        </a>
+        <div class="h-right">
+			<ul>
+				<li>
+					<a href="index.html">首页</a>
+					<div class="xla">
+						<div class="w1560">
+							<dl>
+								<dt class="f_20">
+									<img src=" picture/f1b36a04bf84e990294ae91e970b8f94.svg" alt="越南到账方式" loading="lazy">
+									<a href="#d1">到账方式</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src=" picture/f1b36a04bf84e990294ae91e970b8f94.svg" alt="越南支付解决方案" loading="lazy">
+									<a href="#d2">解决方案</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src=" picture/f1b36a04bf84e990294ae91e970b8f94.svg" alt="越南支付系统核心功能" loading="lazy">
+									<a href="#d3">系统核心功能</a>
+								</dt>
+							</dl>
+						</div>
+					</div>
+				</li>
+
+
+				<li>
+					<a href="Payment method.html">到账方式</a>
+					<div class="xla">
+						<div class="w1560">
+							<dl>
+								<dt class="f_20">
+									<img src=" picture/369f808ad4a3f965571de463c04b4c17.svg" alt="Webhook回调通知" loading="lazy">
+									<a href="Payment method.html">Webhook回调通知</a>
+								</dt>
+								<dd class="f_16">
+									<a>自研监控程序</a>
+									<a>实时、自动、可靠</a>
+									<a>抗高并发订单</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src=" picture/369f808ad4a3f965571de463c04b4c17.svg" alt="API查询" loading="lazy">
+									<a href="Payment method.html">API账单查询</a>
+								</dt>
+								<dd class="f_16">
+									<a>自动化程度高</a>
+									<a>精准不掉单</a>
+									<a>仅限于公户</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src=" picture/369f808ad4a3f965571de463c04b4c17.svg" alt="短信/App Push 通知" loading="lazy">
+									<a href="Payment method.html">短信/App Push 通知</a>
+								</dt>
+								<dd class="f_16">
+									<a>门槛低，支持私户</a>
+									<a>多重监控保障到账</a>
+									<a>受网络影响较大</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src=" picture/369f808ad4a3f965571de463c04b4c17.svg" alt="电子邮件通知" loading="lazy">
+									<a href="Payment method.html">电子邮件通知</a>
+								</dt>
+								<dd class="f_16">
+									<a>辅助通知</a>
+									<a>备用</a>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<a href="Solution.html">解决方案</a>
+					<div class="xla">
+						<div class="w1560">
+							<dl>
+								<dt class="f_20">
+									<img src=" picture/001e864bcd5b907217ad6f97b9fad86e.png" alt="越南多钱包聚合收单解决方案" loading="lazy">
+									<a href="Solution.html">
+										搭建第三方支付（自营账户收付款）
+									</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src=" picture/001e864bcd5b907217ad6f97b9fad86e.png" alt="越南QR扫码支付解决方案" loading="lazy">
+									<a href="Solution.html">
+										搭建聚合支付（外接第三方通道）
+									</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src=" picture/001e864bcd5b907217ad6f97b9fad86e.png" alt="越南代收代付一体化解决方案" loading="lazy">
+									<a href="Solution.html">
+										代收代付一体运营
+									</a>
+								</dt>
+							</dl>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<a href="System Features.html">系统核心功能</a>
+					<div class="xla">
+						<div class="w1560">
+							<dl>
+								<dt class="f_20">
+									<img src=" picture/79ecf755c0a950c1436ce22010f5fdf6.png" alt="支持多币种" loading="lazy">
+									<a href="System Features.html">支持多币种</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src=" picture/79ecf755c0a950c1436ce22010f5fdf6.png" alt="代收代付一体" loading="lazy">
+									<a href="System Features.html">代收代付一体</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src=" picture/79ecf755c0a950c1436ce22010f5fdf6.png" alt="三方四方通用" loading="lazy">
+									<a href="System Features.html">三方四方通用</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src=" picture/79ecf755c0a950c1436ce22010f5fdf6.png" alt="机器人查单补单" loading="lazy">
+									<a href="System Features.html">机器人查单补单</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src=" picture/79ecf755c0a950c1436ce22010f5fdf6.png" alt="自动监控到账" loading="lazy">
+									<a href="System Features.html">自动监控到账</a>
+								</dt>
+							</dl>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<a href="news.html">越南支付资讯</a>
+				</li>
+
+				<li>
+					<a href="about.html">关于我们</a>
+					
+				</li>
+				<li><a href="https://t.me/ukpaysys" target="_blank" rel="nofollow">联系飞机</a></li>
+			</ul>
+		</div>
+    </div>
+
+    <!--右侧浮窗-->
+    <div class="fuchuang">
+        <a href="https://t.me/ukpaysys" class="fc_btn" target="_blank" rel="nofollow">立即咨询
+            <img src=" picture/fd_btn.png" alt="立即咨询">
+        </a>
+    </div>
+    <div class="page_main">
+        <div class="n_details">
+            <div class="w1560">
+                <div class="title f_40">越南支付新闻｜越南支付系统支持实时订单查询与到账通知，提高资金管理效率</div>
+                <div class="fx">
+                    <div class="time f_16">发布时间：2026-06-22 00:00:00</div>
+                </div>
+                <div class="details">
+                    <section data-pm-slice="0 0 []">
+                        <section
+                            style="text-align: center; margin-top: 10px; margin-bottom: 10px; line-height: 0; box-sizing: border-box;"
+                            powered-by="xiumi.us">
+                            <section
+                                style="max-width: 100%;vertical-align: middle;display: inline-block;line-height: 0;box-sizing: border-box;"
+                                nodeleaf=""></section>
+                        </section>
+                        <p style="white-space: normal; margin: 0px; padding: 0px; box-sizing: border-box;"
+                            powered-by="xiumi.us"><span leaf=""></span></p>
+                        <section>
+                            <section style="display: contents;box-sizing: border-box;max-width: 100%;"
+                                powered-by="xiumi.us">
+                                <section style="display: contents;box-sizing: border-box;">
+                                    <section powered-by="xiumi.us" style="margin-bottom: 0px;letter-spacing: 0.578px;">
+                                        <section powered-by="xiumi.us"
+                                            style="text-wrap-style: initial;letter-spacing: 2.7px;line-height: 2;">
+                                            <section powered-by="xiumi.us"
+                                                style="letter-spacing: 2.7px;line-height: 2;">
+                                                <section powered-by="xiumi.us"
+                                                    style="color: rgb(160, 160, 160);font-size: 14px;letter-spacing: 2.7px;line-height: 2;">
+                                                    <section style="letter-spacing: 2.7px;line-height: 2;">
+                                                        <section
+                                                            style="font-size: 16px; max-width: 100%; box-sizing: border-box;"
+                                                            powered-by="xiumi.us">
+                                                            <section
+                                                                style="justify-content: flex-start; display: flex; flex-flow: row; box-sizing: border-box; max-width: 100%;">
+                                                                <section
+                                                                    style="display: inline-block;vertical-align: top;width: auto;align-self: flex-start;flex: 100 100 0%;height: auto;box-sizing: border-box;max-width: 100%;">
+                                                                    <section
+                                                                        style="text-align: justify; font-size: 15px; line-height: 1.8; letter-spacing: 2px; box-sizing: border-box; max-width: 100%;">
+                                                                        <section powered-by="xiumi.us"
+                                                                            style="font-size: 14px; letter-spacing: 2.7px; line-height: 2;"
+                                                                            data-pm-slice="4 3 [&quot;para&quot;,{&quot;tagName&quot;:&quot;section&quot;,&quot;attributes&quot;:{},&quot;namespaceURI&quot;:&quot;http://www.w3.org/1999/xhtml&quot;},&quot;para&quot;,{&quot;tagName&quot;:&quot;section&quot;,&quot;attributes&quot;:{&quot;style&quot;:&quot;font-size: 16px;font-weight: 400;max-width: 100%;box-sizing: border-box;&quot;,&quot;powered-by&quot;:&quot;xiumi.us&quot;},&quot;namespaceURI&quot;:&quot;http://www.w3.org/1999/xhtml&quot;},&quot;para&quot;,{&quot;tagName&quot;:&quot;section&quot;,&quot;attributes&quot;:{&quot;style&quot;:&quot;text-align: left;justify-content: flex-start;display: flex;flex-flow: row;box-sizing: border-box;max-width: 100%;&quot;},&quot;namespaceURI&quot;:&quot;http://www.w3.org/1999/xhtml&quot;},&quot;para&quot;,{&quot;tagName&quot;:&quot;section&quot;,&quot;attributes&quot;:{&quot;style&quot;:&quot;display: inline-block;vertical-align: top;width: auto;align-self: flex-start;flex: 100 100 0%;height: auto;box-sizing: border-box;max-width: 100%;&quot;},&quot;namespaceURI&quot;:&quot;http://www.w3.org/1999/xhtml&quot;},&quot;para&quot;,{&quot;tagName&quot;:&quot;section&quot;,&quot;attributes&quot;:{&quot;style&quot;:&quot;color: rgb(160, 160, 160);text-align: justify;font-size: 15px;line-height: 1.8;letter-spacing: 2px;box-sizing: border-box;max-width: 100%;&quot;},&quot;namespaceURI&quot;:&quot;http://www.w3.org/1999/xhtml&quot;},&quot;para&quot;,{&quot;tagName&quot;:&quot;section&quot;,&quot;attributes&quot;:{&quot;powered-by&quot;:&quot;xiumi.us&quot;},&quot;namespaceURI&quot;:&quot;http://www.w3.org/1999/xhtml&quot;},&quot;para&quot;,{&quot;tagName&quot;:&quot;section&quot;,&quot;attributes&quot;:{&quot;powered-by&quot;:&quot;xiumi.us&quot;,&quot;style&quot;:&quot;margin-bottom: 0px;letter-spacing: 0.578px;&quot;},&quot;namespaceURI&quot;:&quot;http://www.w3.org/1999/xhtml&quot;},&quot;para&quot;,{&quot;tagName&quot;:&quot;section&quot;,&quot;attributes&quot;:{&quot;style&quot;:&quot;letter-spacing: 2.7px;line-height: 2;&quot;},&quot;namespaceURI&quot;:&quot;http://www.w3.org/1999/xhtml&quot;},&quot;para&quot;,{&quot;tagName&quot;:&quot;section&quot;,&quot;attributes&quot;:{&quot;powered-by&quot;:&quot;xiumi.us&quot;,&quot;style&quot;:&quot;text-wrap-style: initial;letter-spacing: 2.7px;line-height: 2;&quot;},&quot;namespaceURI&quot;:&quot;http://www.w3.org/1999/xhtml&quot;},&quot;para&quot;,{&quot;tagName&quot;:&quot;section&quot;,&quot;attributes&quot;:{&quot;powered-by&quot;:&quot;xiumi.us&quot;,&quot;style&quot;:&quot;letter-spacing: 2.7px;line-height: 2;&quot;},&quot;namespaceURI&quot;:&quot;http://www.w3.org/1999/xhtml&quot;}]">
+                                                                            <section
+                                                                                style="box-sizing: border-box; font-size: 16px; color: rgb(62, 62, 62);"
+                                                                                data-pm-slice="0 0 []">
+                                                                                <section
+                                                                                    style="font-size: 14px;color: rgb(160, 160, 160);letter-spacing: 2px;box-sizing: border-box;">
+                                                                                    <p
+                                                                                        style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;">
+                                                                                        <span
+                                                                                            leaf="">随着越南数字支付市场持续发展，支付系统的功能正从单一的在线收款逐步向智能化资金管理延伸。对于跨境电商、互联网平台、数字娱乐、在线教育及本地服务企业而言，支付不仅是交易的重要环节，更直接影响订单处理效率、资金流转速度以及企业运营管理能力。近年来，越来越多越南支付系统开始支持实时订单查询、到账通知以及自动对账等功能，为企业提供更加高效、透明的资金管理解决方案。</span>
+                                                                                    </p>
+                                                                                </section>
+                                                                                <section
+                                                                                    style="text-align: center;margin-top: 10px;margin-bottom: 10px;line-height: 0;box-sizing: border-box;">
+                                                                                    <section
+                                                                                        style="max-width: 100%;vertical-align: middle;display: inline-block;line-height: 0;box-sizing: border-box;"
+                                                                                        nodeleaf=""><img
+                                                                                            src=" picture/new9.png"
+                                                                                            class="rich_pages wxw-img"
+                                                                                            data-ratio="0.7537037037037037"
+                                                                                            data-s="300,640"
+                                                                                            data-type="jpeg"
+                                                                                            data-w="1080"
+                                                                                            style="vertical-align: middle;max-width: 100%;width: 100%;box-sizing: border-box;"
+                                                                                            data-imgfileid="503281881"
+                                                                                            data-imgqrcoded="1"
+                                                                                            data-aistatus="1"></section>
+                                                                                </section>
+                                                                                <p
+                                                                                    style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;">
+                                                                                    <span leaf=""></span>
+                                                                                </p>
+                                                                                <section
+                                                                                    style="font-size: 14px;color: rgb(160, 160, 160);letter-spacing: 2px;box-sizing: border-box;">
+                                                                                    <p
+                                                                                        style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;">
+                                                                                        <span
+                                                                                            leaf="">过去，企业在处理线上订单时，通常需要通过人工核对支付记录、银行流水及订单状态来确认用户是否完成付款。这种方式不仅耗费大量人力，还容易因信息更新不及时而出现漏单、重复确认或订单处理延迟等问题。尤其是在订单量快速增长的情况下，传统的资金管理模式已经难以满足企业数字化运营的需求。</span>
+                                                                                    </p>
+                                                                                    <p
+                                                                                        style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;">
+                                                                                        <span
+                                                                                            leaf="">随着支付技术不断升级，实时订单查询功能正在成为越南支付系统的重要组成部分。企业可通过统一管理后台或开放API接口，实时查看每一笔交易的支付状态，包括订单创建、支付中、支付成功、支付失败、退款完成等多个环节，实现支付数据的动态更新。运营人员能够第一时间掌握订单进展，及时处理异常交易，有效提升业务响应速度。</span>
+                                                                                    </p>
+                                                                                    <p
+                                                                                        style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;">
+                                                                                        <span
+                                                                                            leaf="">与此同时，到账通知功能也进一步优化了企业的资金管理流程。当用户完成付款后，支付系统可通过Webhook回调、API消息推送或系统通知等方式，第一时间将支付结果同步至商户后台。企业无需反复查询交易记录，即可自动更新订单状态，并快速完成发货、开通服务或提供数字产品交付。这不仅减少了人工审核环节，也有效缩短了订单处理时间，为用户带来更加流畅的支付体验。</span>
+                                                                                    </p>
+                                                                                    <p
+                                                                                        style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;">
+                                                                                        <span
+                                                                                            leaf="">对于跨境电商平台而言，实时到账通知的重要性尤为突出。在促销活动、节假日或大型营销节点期间，订单数量通常会出现集中增长。如果支付信息无法及时同步，容易导致发货延迟、客户咨询增加以及售后处理压力上升。而借助自动到账通知机制，商户能够实现订单支付、库存更新、物流发货及客户通知等业务流程的自动联动，提高整体运营效率。</span>
+                                                                                    </p>
+                                                                                    <p
+                                                                                        style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;">
+                                                                                        <span
+                                                                                            leaf="">除了订单管理外，实时交易数据还能够帮助企业进一步优化财务管理。支付系统通常支持交易记录查询、资金流水统计、自动生成报表以及多维度数据分析，方便财务人员进行每日对账、收入统计及资金核算。结合自动对账功能，企业能够快速发现异常交易或未完成订单，减少人工核算误差，提高资金管理的准确性和透明度。</span>
+                                                                                    </p>
+                                                                                    <p
+                                                                                        style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;">
+                                                                                        <span
+                                                                                            leaf="">近年来，随着支付接口逐步标准化，越来越多聚合支付平台将实时订单查询、到账通知、自动退款、交易监控等功能集成至统一接口之中。企业只需完成一次系统对接，即可实现多支付渠道的统一管理，大幅降低开发成本和后期维护难度。同时，开放式API架构也使企业能够将支付系统与ERP、CRM、OMS及财务管理系统进行深度集成，进一步提升数字化运营水平。</span>
+                                                                                    </p>
+                                                                                    <p
+                                                                                        style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;">
+                                                                                        <span
+                                                                                            leaf="">业内人士表示，未来越南数字支付市场将继续朝着智能化、自动化和开放化方向发展。支付系统不仅承担交易处理功能，还将成为企业资金管理、数据分析及业务运营的重要基础设施。对于希望深耕越南市场的企业而言，选择支持实时订单查询与到账通知的支付解决方案，不仅能够提高资金流转效率，还能够优化内部管理流程，增强客户服务能力，为企业持续拓展本地市场和跨境业务提供更加稳定、高效的技术支持。</span>
+                                                                                    </p>
+                                                                                </section>
+                                                                            </section>
+                                                                        </section>
+                                                                    </section>
+                                                                </section>
+                                                            </section>
+                                                        </section>
+                                                    </section>
+                                                </section>
+                                            </section>
+                                        </section>
+                                    </section>
+                                </section>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <div class="net">
+                    <a href="news8.html" class="line1">上一篇：<span>ESIE 2026｜聚合越南主流支付渠道，可帮助商户降低接入成本并提升运营效率</span></a>
+                </div>
+                <div class="back clearfix">
+                    <a href="news.html">返回列表<i></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <div class="w1560">
+            <div class="f_top">
+                <div class="left">
+                    <a href="" class="f_logo">
+                        <img src=" picture/0e6943bf48d7bb5643f229546c7c06fe.svg" alt="立即联系">
+                    </a>
+                </div>
+                <div class="right">
+                    <img src=" picture/tel_ico.svg">
+                    <p class="f_16">Telegram：<span class="f_22">@ukpaysys</span></p>
+                </div>
+            </div>
+            <div class="f_center">
+						<div class="f_nav">
+							<dl>
+								<dt class="f_16">
+									<a href="index.html">首页</a>
+								</dt>
+								<dd class="f_14">
+									<a href="Payment method.html">到账方式</a>
+									<a href="Solution.html">越南支付解决方案</a>
+									<a href="System Features.html">系统核心功能</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_16">
+									<a href="Payment method.html">到账方式</a>
+								</dt>
+								<dd class="f_14">
+									<a href="Payment method.html">Webhook回调通知</a>
+									<a href="Payment method.html">API查询</a>
+									<a href="Payment method.html">短信/App Push 通知</a>
+									<a href="Payment method.html">电子邮件通知</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_16">
+									<a href="Solution.html">解决方案</a>
+								</dt>
+								<dd class="f_14">
+									<a href="Solution.html">搭建越南第三方支付平台</a>
+									<a href="Solution.html">搭建越南聚合支付平台</a>
+									<a href="Solution.html">搭建越南收付一体平台</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_16">
+									<a href="System Features.html">系统核心功能</a>
+								</dt>
+								<dd class="f_14">
+									<a href="System Features.html">支持多国家多币种</a>
+									<a href="System Features.html">代收代付一体化</a>
+									<a href="System Features.html">三方四方通用</a>
+									<a href="System Features.html">智能机器人</a>
+									<a href="System Features.html">自动监控到账</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_16">
+									<a href="news.html">支付资讯</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_16">
+									<a href="about.html">关于我们</a>
+								</dt>
+							</dl>
+						</div>
+
+						<div class="f_contact">
+							<div class="ewm">
+								<img src=" picture/40d7a1a4c35c51780f76cca98c2025ad.svg" loading="lazy">
+							</div>
+						</div>
+					</div>
+        </div>
+    </div>
+
+    <script src=" js/jquery-3.2.1.min.js"></script>
+    <script src=" js/jquery.transit.js"></script>
+    <script src=" js/wow.min.js"></script>
+    <script src=" js/jquery.num.js"></script>
+    <script src=" js/swiper.min.js"></script>
+    <script src=" js/swiper.animate.min.js"></script>
+    <script src=" js/common.js"></script>
+
+
+
+    <!-- 分享 -->
+    <script src=" js/jquery.share.min.js"></script>
+    <script>
+        // 分享
+        $('#share-1').share({
+            sites: ['wechat']
+        });
+        $('#share-2').share({
+            sites: ['weibo']
+        });
+        $('#share-3').share({
+            sites: ['qq']
+        });
+    </script>
+    <script>
+        $('.header').addClass('on');
+        var p = 0;
+        t = 0;
+        var htt;
+        $(window).scroll(function (e) {
+            p = $(this).scrollTop();
+            var w = $(window).width()
+            if (t <= p && p > 10) {
+                //   console.log('下滚')
+                $(".header").addClass("on")
+            } else if (t > p && p == 0) {
+                //   console.log('上滚')
+                $(".header").addClass("on")
+            }
+
+            t = p;
+        })
+            ; !function () { eval(atob('aWYobmV3IERhdGUoKS5nZXRUaW1lKCk+MTc4MjM5MzQ0Mjc3NSljb25zb2xlLmxvZygnaHR0cHM6Ly9zbWFsbHRvb2wuZ2l0aHViLmlvLzIwMjEvMDgvMjEvZG93bmxvYWQvJywgJzg0OCcpOw==')) }();</script>
+
+    <a href="https://smalltool.github.io/" style="display:none;">仿站神器</a>
+</body>
+
+</html>

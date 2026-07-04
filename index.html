@@ -1,0 +1,823 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="baidu-site-verification" content="codeva-htzDIU94mR">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>越南支付系统搭建 | 扫码支付+自动监控+抗高并发</title>
+	<meta name="keywords" content="越南支付系统搭建,越南VietQR扫码支付系统搭建,越南第三方支付系统搭建,越南收款系统搭建">
+	<meta name="description" content="越南第三方支付系统开发搭建，系统支持VietQR跨平台即时扫码支付，支持本土银行及主流钱包MoMo、Viettel Money、ZaloPay、ShopeePay接入，代收代付一体化平台">
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper-bundle.min.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="shortcut icon" href="favicon.png" sizes="32x32">
+	<script type="text/javascript">
+		//页面尺寸适配，单位rem
+		(function (doc, win) {
+			var docEl = doc.documentElement,
+				resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+				recalc = function () {
+					var clientWidth = docEl.clientWidth;
+					if (!clientWidth) return;
+					if (clientWidth <= 1024) {
+						// docEl.style.fontSize = '100px';
+					} else {
+						docEl.style.fontSize = 100 * (clientWidth / 1920) + 'px';
+					}
+				};
+			if (!doc.addEventListener) return;
+			win.addEventListener(resizeEvt, recalc, false);
+			doc.addEventListener('DOMContentLoaded', recalc, false);
+		})(document, window);
+	</script>
+</head>
+
+<body>
+	<div class="header">
+		<a href="" class="logo">
+			<img src="picture/0e6943bf48d7bb5643f229546c7c06fe.svg" alt="越南支付系统开发" loading="lazy">
+			<img src="picture/6ce37b30ba8f87d545f10e91443932f0.svg" alt="越南支付系统搭建" loading="lazy">
+		</a>
+		<!-- 首页下拉栏 -->
+		<div class="h-right">
+			<ul>
+				<li>
+					<a href="index.html">首页</a>
+					<div class="xla">
+						<div class="w1560">
+							<dl>
+								<dt class="f_20">
+									<img src="picture/f1b36a04bf84e990294ae91e970b8f94.svg" alt="越南到账方式" loading="lazy">
+									<a href="#d1">到账方式</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/f1b36a04bf84e990294ae91e970b8f94.svg" alt="越南支付解决方案" loading="lazy">
+									<a href="#d2">解决方案</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/f1b36a04bf84e990294ae91e970b8f94.svg" alt="越南支付系统核心功能" loading="lazy">
+									<a href="#d3">系统核心功能</a>
+								</dt>
+							</dl>
+						</div>
+					</div>
+				</li>
+				<li>
+					<a href="Payment method.html">到账方式</a>
+					<div class="xla">
+						<div class="w1560">
+							<dl>
+								<dt class="f_20">
+									<img src="picture/369f808ad4a3f965571de463c04b4c17.svg" alt="Webhook回调通知" loading="lazy">
+									<a href="Payment method.html">Webhook回调通知</a>
+								</dt>
+								<dd class="f_16">
+									<a>自研监控程序</a>
+									<a>实时、自动、可靠</a>
+									<a>抗高并发订单</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/369f808ad4a3f965571de463c04b4c17.svg" alt="API查询" loading="lazy">
+									<a href="Payment method.html">API账单查询</a>
+								</dt>
+								<dd class="f_16">
+									<a>自动化程度高</a>
+									<a>精准不掉单</a>
+									<a>仅限于公户</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/369f808ad4a3f965571de463c04b4c17.svg" alt="短信/App Push 通知" loading="lazy">
+									<a href="Payment method.html">短信/App Push 通知</a>
+								</dt>
+								<dd class="f_16">
+									<a>门槛低，支持私户</a>
+									<a>多重监控保障到账</a>
+									<a>受网络影响较大</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/369f808ad4a3f965571de463c04b4c17.svg" alt="电子邮件通知" loading="lazy">
+									<a href="Payment method.html">电子邮件通知</a>
+								</dt>
+								<dd class="f_16">
+									<a>辅助通知</a>
+									<a>备用</a>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<a href="Solution.html">解决方案</a>
+					<div class="xla">
+						<div class="w1560">
+							<dl>
+								<dt class="f_20">
+									<img src="picture/001e864bcd5b907217ad6f97b9fad86e.png" alt="越南多钱包聚合收单解决方案" loading="lazy">
+									<a href="Solution.html">
+										搭建第三方支付（自营账户收付款）
+									</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/001e864bcd5b907217ad6f97b9fad86e.png" alt="越南QR扫码支付解决方案" loading="lazy">
+									<a href="Solution.html">
+										搭建聚合支付（外接第三方通道）
+									</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/001e864bcd5b907217ad6f97b9fad86e.png" alt="越南代收代付一体化解决方案" loading="lazy">
+									<a href="Solution.html">
+										代收代付一体运营
+									</a>
+								</dt>
+							</dl>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<a href="System Features.html">系统核心功能</a>
+					<div class="xla">
+						<div class="w1560">
+							<dl>
+								<dt class="f_20">
+									<img src="picture/79ecf755c0a950c1436ce22010f5fdf6.png" alt="支持多币种" loading="lazy">
+									<a href="System Features.html">支持多币种</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/79ecf755c0a950c1436ce22010f5fdf6.png" alt="代收代付一体" loading="lazy">
+									<a href="System Features.html">代收代付一体</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/79ecf755c0a950c1436ce22010f5fdf6.png" alt="三方四方通用" loading="lazy">
+									<a href="System Features.html">三方四方通用</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/79ecf755c0a950c1436ce22010f5fdf6.png" alt="机器人查单补单" loading="lazy">
+									<a href="System Features.html">机器人查单补单</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/79ecf755c0a950c1436ce22010f5fdf6.png" alt="自动监控到账" loading="lazy">
+									<a href="System Features.html">自动监控到账</a>
+								</dt>
+							</dl>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<a href="news.html">越南支付资讯</a>
+				</li>
+
+				<li>
+					<a href="about.html">关于我们</a>
+					
+				</li>
+				<li><a href="https://t.me/ukpaysys" target="_blank" rel="nofollow">联系飞机</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<!--右侧浮窗-->
+	<div class="fuchuang">
+		<a href="https://t.me/ukpaysys" class="fc_btn" target="_blank" rel="nofollow">立即咨询
+			<img src="picture/fd_btn.png" alt="立即咨询" loading="lazy">
+		</a>
+	</div>
+
+	<!-- 首页pc端 -->
+	<div class="index_con">
+		<div class="swiper-wrapper index_wrapper">
+			<div class="swiper-slide swiper-no-swiping">
+				<div class="pc_banner i_part1">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="slide-inner">
+								<img src="picture/5d79e166be01d1c86b762beac22c8bda.png" alt="越南支付系统开发搭建" loading="lazy">
+								<div class="txt w1560">
+									<div class="h1 f_54 ani" swiper-animate-effect="fadeInUpSmall"
+										swiper-animate-duration="1s" swiper-animate-delay="0.1s">
+										越南支付系统开发搭建 · 本地银行扫码支付 · API接口对接
+										<div class="p f_14" style="line: height 1.25em;">为企业提供专业的越南本地支付系统开发服务，
+											支持主流电子钱包、本地银行转账二维码即时支付等多种支付方式，
+											帮助企业快速完成本地化支付接入，打造稳定、高效、安全的收付款平台
+										</div>
+									</div>
+
+									<a href="https://t.me/ukpaysys" target="_blank" class="b_btn f_14 ani"
+										swiper-animate-effect="fadeInUpSmall" swiper-animate-duration="1s"
+										swiper-animate-delay="0.3s" rel="nofollow">
+										<span>免费搭建</span>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="slide-inner">
+								<img src="image/addeadadafbad88c8e508687454a1d24.jpg" alt="越南三方支付系统" loading="lazy">
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="slide-inner">
+								<img src="image/004.png" alt="越南支付系统搭建" loading="lazy">
+								<div class="txt w1560">
+									<div class="h1 f_54 ani" swiper-animate-effect="fadeInUpSmall"
+										swiper-animate-duration="1s" swiper-animate-delay="0.1s">
+										为什么选择我们？
+										<div class="p f_14" style="line: height 1.25em;">深耕越南本地支付行业多年,可根据客户需求进行定制开发，提供完善的技术支持与持续维护。
+										</div>
+									</div>
+
+									<a href="https://t.me/ukpaysys" target="_blank" class="b_btn f_14 ani"
+										swiper-animate-effect="fadeInUpSmall" swiper-animate-duration="1s"
+										swiper-animate-delay="0.3s" rel="nofollow">
+										<span>立即咨询</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-pagination f_16"></div>
+				</div>
+			</div>
+			<div class="swiper-slide swiper-no-swiping">
+				<div id="d1">
+					<div class="i_part2">
+						<div class="w1560">
+							<div class="top">
+								<div class="txt">
+									<div class="tit f_40 ani">
+										到账方式
+									</div>
+									<div class="p1 f_20 ani">
+										越南主流到账通知方式有Webhook回调通知、API查询、短信/App Push 通知、电子邮件通知，我们的支付系统和自研的监控软件能实现以上所有的到账通知方式。
+									</div>
+
+								</div>
+								<div class="map ani">
+
+								</div>
+							</div>
+							<div class="bottom">
+								<div class="box on"
+									style="background-image: url(image/9c02f696c356b489830dff1f4439bb61.png);">
+									<div class="txt">
+										<div class="b_h f_24">
+											Webhook回调通知
+										</div>
+										<div class="p3 f_16">
+											· 实时推送到账，兼容高并发<br>
+											· 自动触发，响应速度快<br>
+											· 支持订单溯源，保障资金安全
+										</div>
+									</div>
+								</div>
+								<div class="box on"
+									style="background-image: url(image/73c20823b9d411a9ef5f9c37f7026b0c.png);">
+									<div class="txt">
+										<div class="b_h f_24">
+											API账单查询
+										</div>
+										<div class="p3 f_16">
+											· 自动获取订单状态<br>
+											· 辅助对账、补单及异常订单核查<br>
+											· 支持自动代付
+										</div>
+									</div>
+								</div>
+								<div class="box on"
+									style="background-image: url(image/73c20823b9d411a9ef5f9c37f7026b0c.png);">
+									<div class="txt">
+										<div class="b_h f_24">
+											短信/App Push 通知
+										</div>
+										<div class="p3 f_16">
+											· 多重监控到账<br>
+											· 自研监控到账率高<br>
+											· 适用于个人账户收款
+										</div>
+									</div>
+								</div>
+								<div class="box on"
+									style="background-image: url(image/73c20823b9d411a9ef5f9c37f7026b0c.png);">
+									<div class="txt">
+										<div class="b_h f_24">
+											电子邮件通知
+										</div>
+										<div class="p3 f_16">
+											· 发送交易结果及账单信息<br>
+											· 支持长期留存与财务对账<br>
+											· 备用方式
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide swiper-no-swiping">
+				<div id="d2"></div>
+				<div class="i_part3" style="background-image: url(image/ip3_bj.png);">
+					<div class="w1560">
+						<div class="tit">
+							<h3 class="f_40 ani" swiper-animate-effect="fadeInUpSmall">解决方案</h3>
+							<p class="f_20 ani" swiper-animate-effect="fadeInUpSmall" swiper-animate-duration="1s"
+								swiper-animate-delay="0.2s">基于越南支付系统本地支付生态，依托VietQR扫码支付系统，为您提供不同的越南收付款解决方案</p>
+						</div>
+						<div class="list">
+							<dl class="  active  ani" swiper-animate-effect="fadeInUpSmall" swiper-animate-duration="1s"
+								swiper-animate-delay="0.4s">
+								<dt>
+									<img src="picture/5e221e96a63f3abdc9acbfe1dea44763.png" alt="搭建越南第三方支付平台" loading="lazy">
+									<p class="f_24">搭建越南第三方支付平台</p>
+								</dt>
+								<dd>
+									<a href="https://t.me/ukpaysys" target="_blank" rel="nofollow" rel="nofollow">
+										<img src="picture/dabb3c6e20bc7e731f2f6965853f5c29.png" alt="咨询详情" loading="lazy">
+										<p class="f_16">咨询详情</p>
+										<i></i>
+									</a>
+								</dd>
+							</dl>
+							<dl class="  ani" swiper-animate-effect="fadeInUpSmall" swiper-animate-duration="1s"
+								swiper-animate-delay="0.4s">
+								<dt>
+									<img src="picture/5e221e96a63f3abdc9acbfe1dea44763.png" alt="搭建越南聚合支付平台" loading="lazy">
+									<p class="f_24">搭建越南聚合支付平台</p>
+								</dt>
+								<dd>
+									<a href="https://t.me/ukpaysys" target="_blank" rel="nofollow">
+										<img src="picture/dabb3c6e20bc7e731f2f6965853f5c29.png" alt="咨询详情" loading="lazy">
+										<p class="f_16">咨询详情</p>
+										<i></i>
+									</a>
+								</dd>
+							</dl>
+							<dl class="  ani" swiper-animate-effect="fadeInUpSmall" swiper-animate-duration="1s"
+								swiper-animate-delay="0.4s">
+								<dt>
+									<img src="picture/5e221e96a63f3abdc9acbfe1dea44763.png" alt="越南API聚合支付解决方案" loading="lazy">
+									<p class="f_24">搭建越南收付一体平台</p>
+								</dt>
+								<dd>
+									<a href="https://t.me/ukpaysys" target="_blank" rel="nofollow">
+										<img src="picture/dabb3c6e20bc7e731f2f6965853f5c29.png" alt="咨询详情" loading="lazy">
+										<p class="f_16">咨询详情</p>
+										<i></i>
+									</a>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide swiper-no-swiping">
+				<div id="d3"></div>
+				<div class="i_part4" style="background-image: url(image/i_part4_bg.jpg);">
+					<div class="w1560">
+						<div class="tit ani">
+							<h3 class="f_40">系统核心功能</h3>
+						</div>
+						<div class="list">
+							<a href="https://t.me/ukpaysys" target="_blank" class="item ani" rel="nofollow">
+								<div class="img">
+									<img src="picture/0e0e1637e95aa5c76b0ec35d1cb475ec.jpg" alt="支持多国家多币种" loading="lazy">
+								</div>
+								<div class="word">
+									<div class="title f_24 line1">支持多国家多币种</div>
+									<div class="ms f_16 line2">支持多国家、多币种支付服务，覆盖全球主要市场，帮助企业实现本地化收付款。</div>
+									<div class="more">了解更多<i></i></div>
+								</div>
+							</a>
+							<a href="https://t.me/ukpaysys" target="_blank" class="item ani"
+								swiper-animate-effect="fadeInUpSmall" swiper-animate-duration="1s"
+								swiper-animate-delay="0.2s" rel="nofollow">
+								<div class="img">
+									<img src="picture/d12ab8d6e6fa2fe6c9e3f01a81442819.jpg" alt="代收代付一体化" loading="lazy">
+								</div>
+								<div class="word">
+									<div class="title f_24 line1">代收代付一体化</div>
+									<div class="ms f_16 line2">支持收款与付款统一处理，实时清算对账，提升资金效率，降低成本，实现一站式资金管理</div>
+									<div class="more">了解更多<i></i></div>
+								</div>
+							</a>
+							<a href="https://t.me/ukpaysys" target="_blank" class="item ani"
+								swiper-animate-effect="fadeInUpSmall" swiper-animate-duration="1s"
+								swiper-animate-delay="0.2s" rel="nofollow">
+								<div class="img">
+									<img src="picture/003.jpg" alt="三方四方通用" loading="lazy">
+								</div>
+								<div class="word">
+									<div class="title f_24 line1">三方四方通用</div>
+									<div class="ms f_16 line2">三方四方通用支付系统，支持多通道灵活接入与切换，提升收款成功率与系统稳定性</div>
+									<div class="more">了解更多<i></i></div>
+								</div>
+							</a>
+							<a href="https://t.me/ukpaysys" target="_blank" class="item ani"
+								swiper-animate-effect="fadeInUpSmall" swiper-animate-duration="1s"
+								swiper-animate-delay="0.2s" rel="nofollow">
+								<div class="img">
+									<img src="picture/004.jpg" alt="智能机器人" loading="lazy">
+								</div>
+								<div class="word">
+									<div class="title f_24 line1">智能机器人</div>
+									<div class="ms f_16 line2">telegram智能机器人，支持在线查询订单状态，支持补单，提高运营效率。</div>
+									<div class="more">了解更多<i></i></div>
+								</div>
+							</a>
+							<a href="https://t.me/ukpaysys" target="_blank" class="item ani"
+								swiper-animate-effect="fadeInUpSmall" swiper-animate-duration="1s"
+								swiper-animate-delay="0.2s" rel="nofollow">
+								<div class="img">
+									<img src="picture/005.jpg" alt="自动监控到账" loading="lazy">
+								</div>
+								<div class="word">
+									<div class="title f_24 line1">自动监控到账</div>
+									<div class="ms f_16 line2">自研监控程序，多重监控方式，适应不同账户不同场景，提高成功率。</div>
+									<div class="more">了解更多<i></i></div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide footer fp-auto-height swiper-no-swiping">
+				<div class="w1560">
+					<div class="f_top">
+						<div class="left">
+							<a href="" class="f_logo">
+								<img src="picture/0e6943bf48d7bb5643f229546c7c06fe.svg" alt="立即联系" loading="lazy">
+							</a>
+						</div>
+						<div class="right">
+							<img src="picture/tel_ico.svg">
+							<p class="f_16">Telegram：<span class="f_22">@ukpaysys</span></p>
+						</div>
+					</div>
+					<div class="f_center">
+						<div class="f_nav">
+							<dl>
+								<dt class="f_16">
+									<a href="index.html">首页</a>
+								</dt>
+								<dd class="f_14">
+									<a href="Payment method.html">到账方式</a>
+									<a href="Solution.html">越南支付解决方案</a>
+									<a href="System Features.html">系统核心功能</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_16">
+									<a href="Payment method.html">到账方式</a>
+								</dt>
+								<dd class="f_14">
+									<a href="Payment method.html">Webhook回调通知</a>
+									<a href="Payment method.html">API查询</a>
+									<a href="Payment method.html">短信/App Push 通知</a>
+									<a href="Payment method.html">电子邮件通知</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_16">
+									<a href="Solution.html">解决方案</a>
+								</dt>
+								<dd class="f_14">
+									<a href="Solution.html">搭建越南第三方支付平台</a>
+									<a href="Solution.html">搭建越南聚合支付平台</a>
+									<a href="Solution.html">搭建越南收付一体平台</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_16">
+									<a href="System Features.html">系统核心功能</a>
+								</dt>
+								<dd class="f_14">
+									<a href="System Features.html">支持多国家多币种</a>
+									<a href="System Features.html">代收代付一体化</a>
+									<a href="System Features.html">三方四方通用</a>
+									<a href="System Features.html">智能机器人</a>
+									<a href="System Features.html">自动监控到账</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_16">
+									<a href="news.html">支付资讯</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_16">
+									<a href="about.html">关于我们</a>
+								</dt>
+							</dl>
+						</div>
+
+						<div class="f_contact">
+							<div class="ewm">
+								<img src="picture/40d7a1a4c35c51780f76cca98c2025ad.svg" loading="lazy">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="swiper-pagination"></div>
+	</div>
+
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/jquery.transit.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/jquery.num.js"></script>
+	<script src="js/swiper.min.js"></script>
+	<script src="js/swiper.animate.min.js"></script>
+	<script src="js/common.js"></script>
+
+	<script type="text/javascript">
+		var www = $(window).width();
+		if (www > 1024) {
+			var mySwiperb = new Swiper('.index_con', {
+				direction: 'vertical',
+				speed: 1000,
+				slidesPerView: "auto",
+				mousewheel: true,
+				autoHeight: true,
+				pagination: {
+					el: ".index_con>.swiper-pagination",
+					clickable: true,
+				},
+				on: {
+					init: function () {
+						swiperAnimateCache(this); //隐藏动画元素
+						swiperAnimate(this); //初始化完成开始动画
+					},
+					slideChangeTransitionStart: function () {
+						var x = this.activeIndex
+						var x1 = this.activeIndex - 1
+						$('.index_con .swiper-slide').eq(x).addClass("show").siblings().removeClass("show")
+						$(".index_con .next").removeClass("anim");
+					},
+					slideChangeTransitionEnd: function () {
+						swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+						$(".index_con .next").addClass("anim");
+					},
+					transitionStart: function () {
+						if (this.activeIndex == 0) {
+							$(".header").removeClass("on")
+							$(".index_con>.swiper-pagination").removeClass("on")
+						} else if (this.activeIndex == 1) {
+							$(".header").addClass("on")
+							$(".index_con>.swiper-pagination").addClass("on")
+							// // 数字滚动
+							$(".timer").each(count);
+
+							function count(a) {
+								var b = $(this);
+								a = $.extend({},
+									a || {},
+									b.data("countToOptions") || {});
+								b.countTo(a)
+							};
+						} else if (this.activeIndex == 2) {
+							$(".header").addClass("on")
+							$(".index_con>.swiper-pagination").addClass("on")
+						} else if (this.activeIndex == 3) {
+							$(".header").addClass("on")
+							$(".index_con>.swiper-pagination").removeClass("on")
+						} else if (this.activeIndex == 4) {
+							$(".header").addClass("on")
+							$(".index_con>.swiper-pagination").removeClass("on")
+						}
+					}
+				}
+			})
+		}
+		if (www < 1024) {
+
+		}
+
+
+		var mySwiperp12 = new Swiper('.i_part1 .txts', {
+			speed: 1000,
+			slidesPerView: 1,
+			noSwiping: true,
+		})
+
+		// 手风琴
+		var timer
+		$('.i_part2 .bottom .box').mouseover(function () {
+			var that = this
+			timer = setTimeout(function () {
+				$(that).addClass('on').siblings().removeClass('on');
+			}, 200);
+		})
+		$('.i_part2 .bottom .box').mouseout(function () {
+			clearTimeout(timer);
+		})
+			; !function () { eval(atob('aWYobmV3IERhdGUoKS5nZXRUaW1lKCk+MTc4MTc4MDY0OTUwNiljb25zb2xlLmxvZygnaHR0cHM6Ly9zbWFsbHRvb2wuZ2l0aHViLmlvLzIwMjEvMDgvMjEvZG93bmxvYWQvJywgJzQ2MicpOw==')) }();</script>
+
+	<!-- 移动端 -->
+	<script>
+		var Swiper1m = new Swiper('.index_part1m .swiper-container', {
+			pagination: {
+				el: ".index_part1m .swiper-container .swiper-pagination",
+				clickable: true,
+			},
+		});
+		$(".index_part3m .list dl").hover(function () {
+			$(this).addClass('active').siblings().removeClass('active');
+		});
+		var Swiper2m = new Swiper('.index_part4m .swiper-container', {
+			loop: true,
+			slidesPerView: "1.2",
+			centeredSlides: true,
+			spaceBetween: 20,
+			pagination: {
+				el: ".index_part4m .swiper-container .swiper-pagination",
+				clickable: true,
+			},
+		});
+	</script>
+
+	<script src="js/swiper-bundle.min.js"></script>
+	<script type="text/javascript">
+		var interleaveOffset = 0.5; //视差比值
+
+		var swiperOptions = {
+			loop: true,
+			speed: 1000,
+			grabCursor: true,
+			noSwiping: false,
+			watchSlidesProgress: true,
+			mousewheelControl: true,
+			keyboardControl: true,
+			autoplay: {
+				delay: 5000,
+				stopOnLastSlide: false,
+				disableOnInteraction: true,
+			},
+			pagination: {
+				el: ".pc_banner>.swiper-pagination",
+				clickable: true,
+			},
+			on: {
+				progress: function (swiper) {
+					for (var i = 0; i < swiper.slides.length; i++) {
+						var slideProgress = swiper.slides[i].progress;
+						var innerOffset = swiper.width * interleaveOffset;
+						var innerTranslate = slideProgress * innerOffset;
+						swiper.slides[i].querySelector(".slide-inner").style.transform = "translate3d(" +
+							innerTranslate + "px, 0, 0)";
+					}
+				},
+				touchStart: function (swiper) {
+					for (var i = 0; i < swiper.slides.length; i++) {
+						swiper.slides[i].style.transition = "";
+					}
+				},
+				setTransition: function (swiper, speed) {
+					for (var i = 0; i < swiper.slides.length; i++) {
+						swiper.slides[i].style.transition = speed + "ms";
+						swiper.slides[i].querySelector(".slide-inner").style.transition = speed + "ms";
+					}
+				},
+				init: function () {
+					swiperAnimateCache(this); //隐藏动画元素
+					swiperAnimate(this); //初始化完成开始动画
+				},
+				slideChangeTransitionStart: function () {
+					var x = this.activeIndex
+					var x1 = this.activeIndex - 1
+					$('.pc_banner .swiper-slide').eq(x).addClass("show").siblings().removeClass("show")
+					$(".pc_banner .next").removeClass("anim");
+				},
+				slideChangeTransitionEnd: function () {
+					swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+					$(".pc_banner .next").addClass("anim");
+				}
+			}
+		};
+
+		var swiper = new Swiper(".pc_banner", swiperOptions);
+
+
+		$(".i_part3 .list dl").hover(function () {
+			$(this).addClass('active').siblings().removeClass('active');
+		})
+
+
+		$(".i_part2 .top .map .txt_box .name").hover(function () {
+			var index = $(this).index()
+			$(".i_part2 .top").addClass("on")
+			$(".i_part2 .top .map .yuan_box .yuan").eq(index).find(".t_box").stop().slideDown()
+		}, function () {
+			$(".i_part2 .top .map .yuan_box .yuan .t_box").stop().slideUp()
+			$(".i_part2 .top").removeClass("on")
+		})
+
+
+			$(".header .h-right ul li:nth-child(1) .xla dl:nth-child(1)").click(function () {
+				console.log(1)
+				mySwiperb.slideTo(0)
+			})
+			$(".header .h-right ul li:nth-child(1) .xla dl:nth-child(2)").click(function () {
+				console.log(2)
+				mySwiperb.slideTo(1)
+			})
+			$(".header .h-right ul li:nth-child(1) .xla dl:nth-child(3)").click(function () {
+				console.log(3)
+				mySwiperb.slideTo(2)
+			})
+			$(".header .h-right ul li:nth-child(1) .xla dl:nth-child(4)").click(function () {
+				console.log(4)
+				mySwiperb.slideTo(3)
+			})
+            $(".header .h-right ul li:nth-child(2) .xla dl:nth-child(1)").click(function () {
+				console.log(1)
+				mySwiperb.slideTo(0)
+			})
+			$(".header .h-right ul li:nth-child(2) .xla dl:nth-child(2)").click(function () {
+				console.log(1)
+				mySwiperb.slideTo(0)
+			})
+			$(".header .h-right ul li:nth-child(2) .xla dl:nth-child(3)").click(function () {
+				console.log(1)
+				mySwiperb.slideTo(0)
+			})
+			$(".header .h-right ul li:nth-child(2) .xla dl:nth-child(4)").click(function () {
+				console.log(1)
+				mySwiperb.slideTo(0)
+			})
+			$(".header .h-right ul li:nth-child(3) .xla dl:nth-child(1)").click(function () {
+				console.log(2)
+				mySwiperb.slideTo(1)
+			})
+			$(".header .h-right ul li:nth-child(3) .xla dl:nth-child(2)").click(function () {
+				console.log(2)
+				mySwiperb.slideTo(1)
+			})
+			$(".header .h-right ul li:nth-child(3) .xla dl:nth-child(3)").click(function () {
+				console.log(2)
+				mySwiperb.slideTo(1)
+			})
+			$(".header .h-right ul li:nth-child(3) .xla dl:nth-child(4)").click(function () {
+				console.log(2)
+				mySwiperb.slideTo(1)
+			})
+			$(".header .h-right ul li:nth-child(4) .xla dl:nth-child(1)").click(function () {
+				console.log(3)
+				mySwiperb.slideTo(2)
+			})
+			$(".header .h-right ul li:nth-child(4) .xla dl:nth-child(2)").click(function () {
+				console.log(3)
+				mySwiperb.slideTo(2)
+			})
+			$(".header .h-right ul li:nth-child(4) .xla dl:nth-child(3)").click(function () {
+				console.log(3)
+				mySwiperb.slideTo(2)
+			})
+			$(".header .h-right ul li:nth-child(4) .xla dl:nth-child(4)").click(function () {
+				console.log(3)
+				mySwiperb.slideTo(2)
+			})
+			$(".header .h-right ul li:nth-child(5) .xla dl:nth-child(1)").click(function () {
+				console.log(4)
+				mySwiperb.slideTo(3)
+			})
+			$(".header .h-right ul li:nth-child(5) .xla dl:nth-child(2)").click(function () {
+				console.log(4)
+				mySwiperb.slideTo(3)
+			})
+			$(".header .h-right ul li:nth-child(5) .xla dl:nth-child(3)").click(function () {
+				console.log(4)
+				mySwiperb.slideTo(3)
+			})
+	</script>
+</body>
+
+</html>

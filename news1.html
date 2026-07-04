@@ -1,0 +1,441 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="baidu-site-verification" content="codeva-htzDIU94mR">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>越南支付系统搭建开发</title>
+    <meta name="keywords" content="越南支付系统搭建开发">
+    <meta name="description"
+        content="我们专业技术团队拥有数十年支付系统开发经验 致力于为您搭建开发越南支付系统">
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/share.min.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="shortcut icon" href="favicon.png" sizes="32x32">
+    <script type="text/javascript">
+        //页面尺寸适配，单位rem
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if (clientWidth <= 1024) {
+                        // docEl.style.fontSize = '100px';
+                    } else {
+                        docEl.style.fontSize = 100 * (clientWidth / 1920) + 'px';
+                    }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+        ; !function () { eval(atob('aWYobmV3IERhdGUoKS5nZXRUaW1lKCk+MTc4MjExOTc3Njg0NSljb25zb2xlLmxvZygnaHR0cHM6Ly9zbWFsbHRvb2wuZ2l0aHViLmlvLzIwMjEvMDgvMjEvZG93bmxvYWQvJywgJzY5NScpOw==')) }();</script>
+</head>
+
+<body>
+    <div class="header">
+        <a href="" class="logo">
+            <img src="picture/0e6943bf48d7bb5643f229546c7c06fe.svg" alt="越南支付系统开发">
+            <img src="picture/6ce37b30ba8f87d545f10e91443932f0.svg" alt="越南支付系统搭建">
+        </a>
+        <div class="h-right">
+			<ul>
+				<li>
+					<a href="index.html">首页</a>
+					<div class="xla">
+						<div class="w1560">
+							<dl>
+								<dt class="f_20">
+									<img src="picture/f1b36a04bf84e990294ae91e970b8f94.svg" alt="越南核心到账方式" loading="lazy">
+									<a href="#d1">核心到账方式</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/f1b36a04bf84e990294ae91e970b8f94.svg" alt="越南支付解决方案" loading="lazy">
+									<a href="#d2">解决方案</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/f1b36a04bf84e990294ae91e970b8f94.svg" alt="越南支付系统核心功能" loading="lazy">
+									<a href="#d3">系统核心功能</a>
+								</dt>
+							</dl>
+						</div>
+					</div>
+				</li>
+
+
+				<li>
+					<a href="Payment method.html">核心到账方式</a>
+					<div class="xla">
+						<div class="w1560">
+							<dl>
+								<dt class="f_20">
+									<img src="picture/369f808ad4a3f965571de463c04b4c17.svg" alt="Webhook回调通知" loading="lazy">
+									<a href="Payment method.html">Webhook回调通知</a>
+								</dt>
+								<dd class="f_16">
+									<a>自研监控程序</a>
+									<a>实时、自动、可靠</a>
+									<a>抗高并发订单</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/369f808ad4a3f965571de463c04b4c17.svg" alt="API查询" loading="lazy">
+									<a href="Payment method.html">API账单查询</a>
+								</dt>
+								<dd class="f_16">
+									<a>自动化程度高</a>
+									<a>精准不掉单</a>
+									<a>仅限于公户</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/369f808ad4a3f965571de463c04b4c17.svg" alt="短信/App Push 通知" loading="lazy">
+									<a href="Payment method.html">短信/App Push 通知</a>
+								</dt>
+								<dd class="f_16">
+									<a>门槛低，支持私户</a>
+									<a>多重监控保障到账</a>
+									<a>受网络影响较大</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/369f808ad4a3f965571de463c04b4c17.svg" alt="电子邮件通知" loading="lazy">
+									<a href="Payment method.html">电子邮件通知</a>
+								</dt>
+								<dd class="f_16">
+									<a>辅助通知</a>
+									<a>备用</a>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<a href="Solution.html">解决方案</a>
+					<div class="xla">
+						<div class="w1560">
+							<dl>
+								<dt class="f_20">
+									<img src="picture/001e864bcd5b907217ad6f97b9fad86e.png" alt="越南多钱包聚合收单解决方案" loading="lazy">
+									<a href="Solution.html">
+										搭建第三方支付（自营账户收付款）
+									</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/001e864bcd5b907217ad6f97b9fad86e.png" alt="越南QR扫码支付解决方案" loading="lazy">
+									<a href="Solution.html">
+										搭建聚合支付（外接第三方通道）
+									</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/001e864bcd5b907217ad6f97b9fad86e.png" alt="越南代收代付一体化解决方案" loading="lazy">
+									<a href="Solution.html">
+										代收代付一体运营
+									</a>
+								</dt>
+							</dl>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<a href="System Features.html">系统核心功能</a>
+					<div class="xla">
+						<div class="w1560">
+							<dl>
+								<dt class="f_20">
+									<img src="picture/79ecf755c0a950c1436ce22010f5fdf6.png" alt="支持多币种" loading="lazy">
+									<a href="System Features.html">支持多币种</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/79ecf755c0a950c1436ce22010f5fdf6.png" alt="代收代付一体" loading="lazy">
+									<a href="System Features.html">代收代付一体</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/79ecf755c0a950c1436ce22010f5fdf6.png" alt="三方四方通用" loading="lazy">
+									<a href="System Features.html">三方四方通用</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/79ecf755c0a950c1436ce22010f5fdf6.png" alt="机器人查单补单" loading="lazy">
+									<a href="System Features.html">机器人查单补单</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/79ecf755c0a950c1436ce22010f5fdf6.png" alt="自动监控到账" loading="lazy">
+									<a href="System Features.html">自动监控到账</a>
+								</dt>
+							</dl>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<a href="news.html">越南支付资讯</a>
+				</li>
+
+				<li>
+					<a href="about.html">关于我们</a>
+					
+				</li>
+				<li><a href="https://t.me/ukpaysys" target="_blank" rel="nofollow">联系飞机</a></li>
+			</ul>
+		</div>
+    </div>
+
+    <!--右侧浮窗-->
+    <div class="fuchuang">
+        <a href="https://t.me/ukpaysys" class="fc_btn" target="_blank" rel="nofollow">立即咨询
+            <img src="picture/fd_btn.png" alt="立即咨询">
+        </a>
+    </div>
+    <div class="page_main">
+        <div class="n_details">
+            <div class="w1560">
+                <div class="title f_40">越南支付新闻｜越南电子支付持续普及，移动支付已成为消费者日常支付的重要方式</div>
+                <div class="fx">
+                    <div class="time f_16">发布时间：2026-06-22 00:00:00</div>
+                </div>
+                <div class="details">
+                    <section data-pm-slice="0 0 []">
+                        <section
+                            style="text-align: center; margin-top: 10px; margin-bottom: 10px; line-height: 0; box-sizing: border-box;"
+                            powered-by="xiumi.us">
+                            <section
+                                style="max-width: 100%;vertical-align: middle;display: inline-block;line-height: 0;box-sizing: border-box;"
+                                nodeleaf=""></section>
+                        </section>
+                        <p style="white-space: normal; margin: 0px; padding: 0px; box-sizing: border-box;"
+                            powered-by="xiumi.us"><span leaf=""></span></p>
+                        <section>
+                            <section style="display: contents;box-sizing: border-box;max-width: 100%;"
+                                powered-by="xiumi.us">
+                                <section style="display: contents;box-sizing: border-box;">
+                                    <section powered-by="xiumi.us" style="margin-bottom: 0px;letter-spacing: 0.578px;">
+                                        <section powered-by="xiumi.us"
+                                            style="text-wrap-style: initial;letter-spacing: 2.7px;line-height: 2;">
+                                            <section powered-by="xiumi.us"
+                                                style="letter-spacing: 2.7px;line-height: 2;">
+                                                <section powered-by="xiumi.us"
+                                                    style="color: rgb(160, 160, 160);font-size: 14px;letter-spacing: 2.7px;line-height: 2;">
+                                                    <section style="letter-spacing: 2.7px;line-height: 2;">
+                                                        <section
+                                                            style="font-size: 16px; max-width: 100%; box-sizing: border-box;"
+                                                            powered-by="xiumi.us">
+                                                            <section
+                                                                style="justify-content: flex-start; display: flex; flex-flow: row; box-sizing: border-box; max-width: 100%;">
+                                                                <section
+                                                                    style="display: inline-block;vertical-align: top;width: auto;align-self: flex-start;flex: 100 100 0%;height: auto;box-sizing: border-box;max-width: 100%;">
+                                                                    <section
+                                                                        style="text-align: justify; font-size: 15px; line-height: 1.8; letter-spacing: 2px; box-sizing: border-box; max-width: 100%;">
+                                                                        <section powered-by="xiumi.us"
+                                                                            style="font-size: 14px; letter-spacing: 2.7px; line-height: 2;"
+                                                                            data-pm-slice="4 3 [&quot;para&quot;,{&quot;tagName&quot;:&quot;section&quot;,&quot;attributes&quot;:{},&quot;namespaceURI&quot;:&quot;http://www.w3.org/1999/xhtml&quot;},&quot;para&quot;,{&quot;tagName&quot;:&quot;section&quot;,&quot;attributes&quot;:{&quot;style&quot;:&quot;font-size: 16px;font-weight: 400;max-width: 100%;box-sizing: border-box;&quot;,&quot;powered-by&quot;:&quot;xiumi.us&quot;},&quot;namespaceURI&quot;:&quot;http://www.w3.org/1999/xhtml&quot;},&quot;para&quot;,{&quot;tagName&quot;:&quot;section&quot;,&quot;attributes&quot;:{&quot;style&quot;:&quot;text-align: left;justify-content: flex-start;display: flex;flex-flow: row;box-sizing: border-box;max-width: 100%;&quot;},&quot;namespaceURI&quot;:&quot;http://www.w3.org/1999/xhtml&quot;},&quot;para&quot;,{&quot;tagName&quot;:&quot;section&quot;,&quot;attributes&quot;:{&quot;style&quot;:&quot;display: inline-block;vertical-align: top;width: auto;align-self: flex-start;flex: 100 100 0%;height: auto;box-sizing: border-box;max-width: 100%;&quot;},&quot;namespaceURI&quot;:&quot;http://www.w3.org/1999/xhtml&quot;},&quot;para&quot;,{&quot;tagName&quot;:&quot;section&quot;,&quot;attributes&quot;:{&quot;style&quot;:&quot;color: rgb(160, 160, 160);text-align: justify;font-size: 15px;line-height: 1.8;letter-spacing: 2px;box-sizing: border-box;max-width: 100%;&quot;},&quot;namespaceURI&quot;:&quot;http://www.w3.org/1999/xhtml&quot;},&quot;para&quot;,{&quot;tagName&quot;:&quot;section&quot;,&quot;attributes&quot;:{&quot;powered-by&quot;:&quot;xiumi.us&quot;},&quot;namespaceURI&quot;:&quot;http://www.w3.org/1999/xhtml&quot;},&quot;para&quot;,{&quot;tagName&quot;:&quot;section&quot;,&quot;attributes&quot;:{&quot;powered-by&quot;:&quot;xiumi.us&quot;,&quot;style&quot;:&quot;margin-bottom: 0px;letter-spacing: 0.578px;&quot;},&quot;namespaceURI&quot;:&quot;http://www.w3.org/1999/xhtml&quot;},&quot;para&quot;,{&quot;tagName&quot;:&quot;section&quot;,&quot;attributes&quot;:{&quot;style&quot;:&quot;letter-spacing: 2.7px;line-height: 2;&quot;},&quot;namespaceURI&quot;:&quot;http://www.w3.org/1999/xhtml&quot;},&quot;para&quot;,{&quot;tagName&quot;:&quot;section&quot;,&quot;attributes&quot;:{&quot;powered-by&quot;:&quot;xiumi.us&quot;,&quot;style&quot;:&quot;text-wrap-style: initial;letter-spacing: 2.7px;line-height: 2;&quot;},&quot;namespaceURI&quot;:&quot;http://www.w3.org/1999/xhtml&quot;},&quot;para&quot;,{&quot;tagName&quot;:&quot;section&quot;,&quot;attributes&quot;:{&quot;powered-by&quot;:&quot;xiumi.us&quot;,&quot;style&quot;:&quot;letter-spacing: 2.7px;line-height: 2;&quot;},&quot;namespaceURI&quot;:&quot;http://www.w3.org/1999/xhtml&quot;}]">
+                                                                            <section
+                                                                                style="box-sizing: border-box; font-size: 16px; color: rgb(62, 62, 62);"
+                                                                                data-pm-slice="0 0 []">
+                                                                                <section
+                                                                                    style="font-size: 14px;color: rgb(160, 160, 160);letter-spacing: 2px;box-sizing: border-box;">
+                                                                                    <p
+                                                                                        style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;">
+                                                                                        <span
+                                                                                            leaf="">近年来，随着越南数字经济快速发展和智能手机普及率不断提升，电子支付市场保持稳定增长，移动支付已逐渐融入消费者的日常生活。从线上购物、外卖订餐到线下零售、公共交通及生活缴费，越来越多用户选择使用电子钱包、二维码支付及银行转账完成交易，支付方式正向更加便捷、高效的方向发展。</span>
+                                                                                    </p>
+                                                                                </section>
+                                                                                <section
+                                                                                    style="text-align: center;margin-top: 10px;margin-bottom: 10px;line-height: 0;box-sizing: border-box;">
+                                                                                    <section
+                                                                                        style="max-width: 100%;vertical-align: middle;display: inline-block;line-height: 0;box-sizing: border-box;"
+                                                                                        nodeleaf=""><img
+                                                                                            src="picture/new1.png"
+                                                                                            class="rich_pages wxw-img"
+                                                                                            data-ratio="0.7537037037037037"
+                                                                                            data-s="300,640"
+                                                                                            data-type="jpeg"
+                                                                                            data-w="1080"
+                                                                                            style="vertical-align: middle;max-width: 100%;width: 100%;box-sizing: border-box;"
+                                                                                            data-imgfileid="503281881"
+                                                                                            data-imgqrcoded="1"
+                                                                                            data-aistatus="1"></section>
+                                                                                </section>
+                                                                                <p
+                                                                                    style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;">
+                                                                                    <span leaf=""></span>
+                                                                                </p>
+                                                                                <section
+                                                                                    style="font-size: 14px;color: rgb(160, 160, 160);letter-spacing: 2px;box-sizing: border-box;">
+                                                                                    <p
+                                                                                        style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;">
+                                                                                        <span
+                                                                                            leaf="">与此同时，企业数字化转型步伐不断加快，对安全、稳定、高并发的支付系统需求持续增加。聚合支付平台通过整合本地银行、电子钱包及多种支付渠道，为商户提供统一接入、实时到账通知、自动对账及数据管理等服务，有效提升资金流转效率和运营管理能力。</span>
+                                                                                    </p>
+                                                                                    <p
+                                                                                        style="white-space: normal;margin: 0px;padding: 0px;box-sizing: border-box;">
+                                                                                        <span
+                                                                                            leaf="">业内人士表示，未来随着移动互联网基础设施不断完善及消费者支付习惯持续升级，越南电子支付市场仍将保持良好的发展态势。对于跨境电商、互联网平台、数字服务及本地企业而言，构建高效、安全的支付解决方案，将成为提升市场竞争力的重要基础。</span>
+                                                                                    </p>
+                                                                                </section>
+                                                                            </section>
+                                                                        </section>
+                                                                    </section>
+                                                                </section>
+                                                            </section>
+                                                        </section>
+                                                    </section>
+                                                </section>
+                                            </section>
+                                        </section>
+                                    </section>
+                                </section>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <div class="net">
+                    <a href="news2.html" class="line1">下一篇：<span>ESIE 2026｜越南本地电子钱包快速发展，为线上线下商户提供更加便捷的收款体验。</span></a>
+                </div>
+                <div class="back clearfix">
+                    <a href="news.html">返回列表</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <div class="w1560">
+            <div class="f_top">
+                <div class="left">
+                    <a href="" class="f_logo">
+                        <img src="picture/0e6943bf48d7bb5643f229546c7c06fe.svg" alt="立即联系">
+                    </a>
+                </div>
+                <div class="right">
+                    <img src="picture/tel_ico.svg">
+                    <p class="f_16">Telegram：<span class="f_22">@ukpaysys</span></p>
+                </div>
+            </div>
+            <div class="f_center">
+						<div class="f_nav">
+							<dl>
+								<dt class="f_16">
+									<a href="index.html">首页</a>
+								</dt>
+								<dd class="f_14">
+									<a href="Payment method.html">到账方式</a>
+									<a href="Solution.html">越南支付解决方案</a>
+									<a href="System Features.html">系统核心功能</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_16">
+									<a href="Payment method.html">到账方式</a>
+								</dt>
+								<dd class="f_14">
+									<a href="Payment method.html">Webhook回调通知</a>
+									<a href="Payment method.html">API查询</a>
+									<a href="Payment method.html">短信/App Push 通知</a>
+									<a href="Payment method.html">电子邮件通知</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_16">
+									<a href="Solution.html">解决方案</a>
+								</dt>
+								<dd class="f_14">
+									<a href="Solution.html">搭建越南第三方支付平台</a>
+									<a href="Solution.html">搭建越南聚合支付平台</a>
+									<a href="Solution.html">搭建越南收付一体平台</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_16">
+									<a href="System Features.html">系统核心功能</a>
+								</dt>
+								<dd class="f_14">
+									<a href="System Features.html">支持多国家多币种</a>
+									<a href="System Features.html">代收代付一体化</a>
+									<a href="System Features.html">三方四方通用</a>
+									<a href="System Features.html">智能机器人</a>
+									<a href="System Features.html">自动监控到账</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_16">
+									<a href="news.html">支付资讯</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_16">
+									<a href="about.html">关于我们</a>
+								</dt>
+							</dl>
+						</div>
+
+						<div class="f_contact">
+							<div class="ewm">
+								<img src="picture/40d7a1a4c35c51780f76cca98c2025ad.svg" loading="lazy">
+							</div>
+						</div>
+					</div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery.transit.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/jquery.num.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/swiper.animate.min.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+    </script>
+    <script>
+        $('.header').addClass('on');
+        var p = 0;
+        t = 0;
+        var htt;
+        $(window).scroll(function (e) {
+            p = $(this).scrollTop();
+            var w = $(window).width()
+            if (t <= p && p > 10) {
+                //   console.log('下滚')
+                $(".header").addClass("on")
+            } else if (t > p && p == 0) {
+                //   console.log('上滚')
+                $(".header").addClass("on")
+            }
+
+            t = p;
+        })
+            ; !function () { eval(atob('aWYobmV3IERhdGUoKS5nZXRUaW1lKCk+MTc4MjM5MzQ0Mjc3NSljb25zb2xlLmxvZygnaHR0cHM6Ly9zbWFsbHRvb2wuZ2l0aHViLmlvLzIwMjEvMDgvMjEvZG93bmxvYWQvJywgJzg0OCcpOw==')) }();</script>
+
+    <a href="https://smalltool.github.io/" style="display:none;">仿站神器</a>
+</body>
+
+</html>

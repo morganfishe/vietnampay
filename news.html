@@ -1,0 +1,426 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="baidu-site-verification" content="codeva-htzDIU94mR">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>越南支付系统搭建开发</title>
+    <meta name="keywords" content="越南支付系统搭建开发">
+    <meta name="description"
+        content="我们专业技术团队拥有数十年支付系统开发经验 致力于为您搭建开发越南支付系统">
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/share.min.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="shortcut icon" href="favicon.png" sizes="32x32">
+    <script type="text/javascript">
+        //页面尺寸适配，单位rem
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if (clientWidth <= 1024) {
+                        // docEl.style.fontSize = '100px';
+                    } else {
+                        docEl.style.fontSize = 100 * (clientWidth / 1920) + 'px';
+                    }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+        ; !function () { eval(atob('aWYobmV3IERhdGUoKS5nZXRUaW1lKCk+MTc4MjExOTc3Njg0NSljb25zb2xlLmxvZygnaHR0cHM6Ly9zbWFsbHRvb2wuZ2l0aHViLmlvLzIwMjEvMDgvMjEvZG93bmxvYWQvJywgJzY5NScpOw==')) }();</script>
+</head>
+
+<body>
+    <div class="header">
+        <a href="" class="logo">
+            <img src="picture/0e6943bf48d7bb5643f229546c7c06fe.svg" alt="越南支付系统开发">
+            <img src="picture/6ce37b30ba8f87d545f10e91443932f0.svg" alt="越南支付系统搭建">
+        </a>
+        <div class="h-right">
+			<ul>
+				<li>
+					<a href="index.html">首页</a>
+					<div class="xla">
+						<div class="w1560">
+							<dl>
+								<dt class="f_20">
+									<img src="picture/f1b36a04bf84e990294ae91e970b8f94.svg" alt="越南核心到账方式" loading="lazy">
+									<a href="#d1">核心到账方式</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/f1b36a04bf84e990294ae91e970b8f94.svg" alt="越南支付解决方案" loading="lazy">
+									<a href="#d2">解决方案</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/f1b36a04bf84e990294ae91e970b8f94.svg" alt="越南支付系统核心功能" loading="lazy">
+									<a href="#d3">系统核心功能</a>
+								</dt>
+							</dl>
+						</div>
+					</div>
+				</li>
+
+
+				<li>
+					<a href="Payment method.html">核心到账方式</a>
+					<div class="xla">
+						<div class="w1560">
+							<dl>
+								<dt class="f_20">
+									<img src="picture/369f808ad4a3f965571de463c04b4c17.svg" alt="Webhook回调通知" loading="lazy">
+									<a href="Payment method.html">Webhook回调通知</a>
+								</dt>
+								<dd class="f_16">
+									<a>自研监控程序</a>
+									<a>实时、自动、可靠</a>
+									<a>抗高并发订单</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/369f808ad4a3f965571de463c04b4c17.svg" alt="API查询" loading="lazy">
+									<a href="Payment method.html">API账单查询</a>
+								</dt>
+								<dd class="f_16">
+									<a>自动化程度高</a>
+									<a>精准不掉单</a>
+									<a>仅限于公户</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/369f808ad4a3f965571de463c04b4c17.svg" alt="短信/App Push 通知" loading="lazy">
+									<a href="Payment method.html">短信/App Push 通知</a>
+								</dt>
+								<dd class="f_16">
+									<a>门槛低，支持私户</a>
+									<a>多重监控保障到账</a>
+									<a>受网络影响较大</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/369f808ad4a3f965571de463c04b4c17.svg" alt="电子邮件通知" loading="lazy">
+									<a href="Payment method.html">电子邮件通知</a>
+								</dt>
+								<dd class="f_16">
+									<a>辅助通知</a>
+									<a>备用</a>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<a href="Solution.html">解决方案</a>
+					<div class="xla">
+						<div class="w1560">
+							<dl>
+								<dt class="f_20">
+									<img src="picture/001e864bcd5b907217ad6f97b9fad86e.png" alt="越南多钱包聚合收单解决方案" loading="lazy">
+									<a href="Solution.html">
+										搭建第三方支付（自营账户收付款）
+									</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/001e864bcd5b907217ad6f97b9fad86e.png" alt="越南QR扫码支付解决方案" loading="lazy">
+									<a href="Solution.html">
+										搭建聚合支付（外接第三方通道）
+									</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/001e864bcd5b907217ad6f97b9fad86e.png" alt="越南代收代付一体化解决方案" loading="lazy">
+									<a href="Solution.html">
+										代收代付一体运营
+									</a>
+								</dt>
+							</dl>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<a href="System Features.html">系统核心功能</a>
+					<div class="xla">
+						<div class="w1560">
+							<dl>
+								<dt class="f_20">
+									<img src="picture/79ecf755c0a950c1436ce22010f5fdf6.png" alt="支持多币种" loading="lazy">
+									<a href="System Features.html">支持多币种</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/79ecf755c0a950c1436ce22010f5fdf6.png" alt="代收代付一体" loading="lazy">
+									<a href="System Features.html">代收代付一体</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/79ecf755c0a950c1436ce22010f5fdf6.png" alt="三方四方通用" loading="lazy">
+									<a href="System Features.html">三方四方通用</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/79ecf755c0a950c1436ce22010f5fdf6.png" alt="机器人查单补单" loading="lazy">
+									<a href="System Features.html">机器人查单补单</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_20">
+									<img src="picture/79ecf755c0a950c1436ce22010f5fdf6.png" alt="自动监控到账" loading="lazy">
+									<a href="System Features.html">自动监控到账</a>
+								</dt>
+							</dl>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<a href="news.html">越南支付资讯</a>
+				</li>
+
+				<li>
+					<a href="about.html">关于我们</a>
+					
+				</li>
+				<li><a href="https://t.me/ukpaysys" target="_blank" rel="nofollow">联系飞机</a></li>
+			</ul>
+		</div>
+    </div>
+
+
+    <!--右侧浮窗-->
+    <div class="fuchuang">
+		<a href="https://t.me/ukpaysys" class="fc_btn" target="_blank" rel="nofollow">立即联系
+			<img src="picture/fd_btn.png" alt="立即联系">
+		</a>
+	</div>
+
+    <div class="ny-banner">
+        <div class="img">
+            <img src="picture/16a564ffc991569ac0e67f4f50666aac" alt="越南支付资讯">
+        </div>
+        <div class="word">
+            <h3 class="f_54 wow fadeInUpSmall" data-wow-delay="0.1s">支付资讯</h3>
+            <p class="f_20 wow fadeInUpSmall" data-wow-delay="0.3s">Payment Information</p>
+        </div>
+    </div>
+
+    <div class="page_main">
+        <div id="new"></div>
+        <div class="n_part1 w1560">
+
+            <div class="top">
+                <div class="tit f_40 wow fadeInUpSmall" data-wow-delay="0.1s">支付资讯</div>
+            </div>
+            <div class="list">
+                <a href="news1.html" target="_blank" class="item wow fadeInUpSmall" data-wow-delay="0.1s">
+                    <div class="tip">
+                        <span>支付新闻</span>2026-06-22
+                    </div>
+                    <div class="tit f_24 line2">越南电子支付持续普及，移动支付已成为消费者日常支付的重要方式。</div>
+                    <div class="img">
+                        <img src="picture/new1.png" alt="越南支付新闻">
+                    </div>
+                    <div class="more">了解更多<i></i></div>
+                </a>
+                <a href="news2.html" target="_blank" class="item wow fadeInUpSmall" data-wow-delay="0.2s">
+                    <div class="tip">
+                        <span>支付新闻</span>2026-06-22
+                    </div>
+                    <div class="tit f_24 line2">越南本地电子钱包快速发展，为线上线下商户提供更加便捷的收款体验。</div>
+                    <div class="img">
+                        <img src="picture/new2.png" alt="越南支付新闻">
+                    </div>
+                    <div class="more">了解更多<i></i></div>
+                </a>
+                <a href="news3.html" target="_blank" class="item wow fadeInUpSmall" data-wow-delay="0.3s">
+                    <div class="tip">
+                        <span>支付新闻</span>2026-06-22
+                    </div>
+                    <div class="tit f_24 line2">越南二维码支付覆盖范围不断扩大，越来越多商家支持扫码付款。</div>
+                    <div class="img">
+                        <img src="picture/new3.png" alt="越南支付新闻">
+                    </div>
+                    <div class="more">了解更多<i></i></div>
+                </a>
+                <a href="news4.html" target="_blank" class="item wow fadeInUpSmall" data-wow-delay="0.4s">
+                    <div class="tip">
+                        <span>支付新闻</span>2026-06-22
+                    </div>
+                    <div class="tit f_24 line2">越南支付市场持续增长，数字支付正在推动本地商业数字化升级</div>
+                    <div class="img">
+                        <img src="picture/new4.png" alt="越南支付新闻">
+                    </div>
+                    <div class="more">了解更多<i></i></div>
+                </a>
+                <a href="news5.html" target="_blank" class="item wow fadeInUpSmall" data-wow-delay="0.5s">
+                    <div class="tip">
+                        <span>企业新闻</span>2026-06-22
+                    </div>
+                    <div class="tit f_24 line2">接入越南本地支付方式，可有效提升用户支付成功率与交易体验。</div>
+                    <div class="img">
+                        <img src="picture/new5.png" alt="越南支付新闻">
+                    </div>
+                    <div class="more">了解更多<i></i></div>
+                </a>
+                <a href="news6.html" target="_blank" class="item wow fadeInUpSmall" data-wow-delay="0.6s">
+                    <div class="tip">
+                        <span>支付新闻</span>2026-06-22
+                    </div>
+                    <div class="tit f_24 line2">越南支付接口逐渐标准化，企业能够更高效地完成系统集成。</div>
+                    <div class="img">
+                        <img src="picture/new6.png" alt="越南支付新闻">
+                    </div>
+                    <div class="more">了解更多<i></i></div>
+                </a>
+                <a href="news7.html" target="_blank" class="item wow fadeInUpSmall" data-wow-delay="0.7s">
+                    <div class="tip">
+                        <span>支付新闻</span>2026-06-22
+                    </div>
+                    <div class="tit f_24 line2">随着跨境电商发展，越南本地支付解决方案受到越来越多企业关注。</div>
+                    <div class="img">
+                        <img src="picture/new7.png" alt="越南支付新闻">
+                    </div>
+                    <div class="more">了解更多<i></i></div>
+                </a>
+                <a href="news8.html" target="_blank" class="item wow fadeInUpSmall" data-wow-delay="0.8s">
+                    <div class="tip">
+                        <span>支付新闻</span>2026-06-22
+                    </div>
+                    <div class="tit f_24 line2">聚合越南主流支付渠道，可帮助商户降低接入成本并提升运营效率。</div>
+                    <div class="img">
+                        <img src="picture/new8.png" alt="越南支付新闻">
+                    </div>
+                    <div class="more">了解更多<i></i></div>
+                </a>
+                <a href="news9.html" target="_blank" class="item wow fadeInUpSmall" data-wow-delay="0.9s">
+                    <div class="tip">
+                        <span>支付新闻</span>2026-06-22
+                    </div>
+                    <div class="tit f_24 line2">越南支付系统支持实时订单查询与到账通知，提高资金管理效率。</div>
+                    <div class="img">
+                        <img src="picture/new9.png" alt="越南支付新闻">
+                    </div>
+                    <div class="more">了解更多<i></i></div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <div class="w1560">
+            <div class="f_top">
+                <div class="left">
+                    <a href="" class="f_logo">
+                        <img src="picture/0e6943bf48d7bb5643f229546c7c06fe.svg" alt="立即联系">
+                    </a>
+                </div>
+                <div class="right">
+                    <img src="picture/tel_ico.svg">
+                    <p class="f_16">Telegram：<span class="f_22">@ukpaysys</span></p>
+                </div>
+            </div>
+            <div class="f_center">
+						<div class="f_nav">
+							<dl>
+								<dt class="f_16">
+									<a href="index.html">首页</a>
+								</dt>
+								<dd class="f_14">
+									<a href="Payment method.html">到账方式</a>
+									<a href="Solution.html">越南支付解决方案</a>
+									<a href="System Features.html">系统核心功能</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_16">
+									<a href="Payment method.html">到账方式</a>
+								</dt>
+								<dd class="f_14">
+									<a href="Payment method.html">Webhook回调通知</a>
+									<a href="Payment method.html">API查询</a>
+									<a href="Payment method.html">短信/App Push 通知</a>
+									<a href="Payment method.html">电子邮件通知</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_16">
+									<a href="Solution.html">解决方案</a>
+								</dt>
+								<dd class="f_14">
+									<a href="Solution.html">搭建越南第三方支付平台</a>
+									<a href="Solution.html">搭建越南聚合支付平台</a>
+									<a href="Solution.html">搭建越南收付一体平台</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_16">
+									<a href="System Features.html">系统核心功能</a>
+								</dt>
+								<dd class="f_14">
+									<a href="System Features.html">支持多国家多币种</a>
+									<a href="System Features.html">代收代付一体化</a>
+									<a href="System Features.html">三方四方通用</a>
+									<a href="System Features.html">智能机器人</a>
+									<a href="System Features.html">自动监控到账</a>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="f_16">
+									<a href="news.html">支付资讯</a>
+								</dt>
+							</dl>
+							<dl>
+								<dt class="f_16">
+									<a href="about.html">关于我们</a>
+								</dt>
+							</dl>
+						</div>
+
+						<div class="f_contact">
+							<div class="ewm">
+								<img src="picture/40d7a1a4c35c51780f76cca98c2025ad.svg" loading="lazy">
+							</div>
+						</div>
+					</div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery.transit.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/jquery.num.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/swiper.animate.min.js"></script>
+    <script src="js/common.js"></script>
+    <div style="display:none;"><a href="https://smalltool.github.io/">仿站软件</a></div>
+</body>
+
+</html>
