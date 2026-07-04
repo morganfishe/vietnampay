@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="矩形_3776" data-name="矩形 3776" width="20" height="20" transform="translate(0.01)"/>
+    </clipPath>
+  </defs>
+  <g id="组_17247" data-name="组 17247" transform="translate(-0.01)">
+    <g id="组_1807" data-name="组 1807" clip-path="url(#clip-path)">
+      <path id="路径_4244" data-name="路径 4244" d="M17.55,2.88H2.47l7.2,8.152a.417.417,0,0,0,.68,0Z" transform="translate(0 0.223)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1.2"/>
+      <path id="路径_4245" data-name="路径 4245" d="M2.4,2.87H17.61a2.01,2.01,0,0,1,1.36.54,1.885,1.885,0,0,1,.54,1.36V15.23a2.01,2.01,0,0,1-.54,1.36,1.885,1.885,0,0,1-1.36.54H2.4a2.01,2.01,0,0,1-1.36-.54A1.9,1.9,0,0,1,.5,15.23V4.77a2.01,2.01,0,0,1,.54-1.36A2.029,2.029,0,0,1,2.4,2.87Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1.2"/>
+      <path id="路径_4246" data-name="路径 4246" d="M.5,15.49c0-.26,7.65-6,7.65-6" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1.2"/>
+      <path id="路径_4247" data-name="路径 4247" d="M.5,15.49c0-.26,7.65-6,7.65-6" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1.2"/>
+      <path id="路径_4248" data-name="路径 4248" d="M19.5,15.49c0-.26-7.63-5.99-7.63-5.99" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1.2"/>
+    </g>
+  </g>
+</svg>
