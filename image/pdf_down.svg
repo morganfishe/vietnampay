@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="39" viewBox="0 0 40 39">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="矩形_16166" data-name="矩形 16166" width="40" height="39" transform="translate(-0.051 0.268)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="蒙版组_2886" data-name="蒙版组 2886" transform="translate(0.051 -0.268)" clip-path="url(#clip-path)">
+    <g id="组_18242" data-name="组 18242" transform="translate(1.552 1.027)">
+      <path id="路径_14085" data-name="路径 14085" d="M978.631-424.542h3.678a9.613,9.613,0,0,0,9.09-10.111,9.613,9.613,0,0,0-6.959-8.735h0a11.931,11.931,0,0,0-15.258-7.206,11.932,11.932,0,0,0-7.206,7.206,9.615,9.615,0,0,0-6.6,11.886,9.615,9.615,0,0,0,8.736,6.96h3.469" transform="translate(-954.998 451.297)" fill="none" stroke="#00397d" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line id="直线_12806" data-name="直线 12806" y2="20.842" transform="translate(18.212 15.294)" fill="none" stroke="#00397d" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <path id="路径_17684" data-name="路径 17684" d="M966.467-425.055l4.291,4.29,4.29-4.29" transform="translate(-952.549 456.9)" fill="none" stroke="#00397d" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>
